@@ -1,0 +1,1221 @@
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ ASPAPI JAWA TENGAH ] - Asosiasi Sarjana dan Praktisi Administrasi Perkantoran Indonesia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sapphire: '#3C507D',
+                        royalBlue: '#112250',
+                        quickSand: '#E0C68F',
+                        swanWing: '#F5F0E9',
+                        shellstone: '#D8C8C2',
+                    },
+                    fontFamily: {
+                        heroTitle: ['"Playfair Display"', 'serif'],
+                        heroSubtitle: ['Poppins', 'sans-serif'],
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #F5F0E9; }
+        .font-hero-title { font-family: 'Playfair Display', serif; }
+        .font-hero-subtitle { font-family: 'Poppins', sans-serif; }
+        
+        /* Custom scrollbar style */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F0E9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3C507D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #112250;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-swanWing overflow-x-hidden">
+
+    <div class="bg-gradient-to-r from-royalBlue via-sapphire to-royalBlue text-white text-xs py-2 px-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex flex-wrap justify-center sm:justify-start items-center gap-4 text-center sm:text-left">
+                <span><i class="fas fa-phone text-quickSand mr-1"></i> +62 812-3456-7890</span>
+                <span><i class="fas fa-envelope text-quickSand mr-1"></i> jateng@aspapi.org</span>
+                <span><i class="fas fa-id-card text-quickSand mr-1"></i> Reg. No: 33/ASPAPI-JT/2026</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#join-interaktif" class="hover:text-quickSand transition-colors font-semibold">Gabung Anggota</a>
+                <span class="text-slate-500">|</span>
+                <a href="#stats" class="hover:text-quickSand transition-colors">Lacak Berkas</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-royalBlue rounded-full flex items-center justify-center border-2 border-quickSand text-quickSand text-xl font-bold shadow-inner">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-wider text-royalBlue font-hero-subtitle">[ ASPAPI ]</span>
+                        <span class="block text-[10px] font-bold text-sapphire tracking-widest uppercase">Jawa Tengah</span>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center gap-8 font-inter font-medium text-sm">
+                    <a href="#hero" class="text-royalBlue hover:text-quickSand transition-colors">Beranda</a>
+                    <a href="#pilar" class="text-royalBlue hover:text-quickSand transition-colors">Pilar Utama</a>
+                    <a href="#tentang" class="text-royalBlue hover:text-quickSand transition-colors">Profil & Struktur</a>
+                    <a href="#layanan" class="text-royalBlue hover:text-quickSand transition-colors">Layanan</a>
+                    <a href="#join-interaktif" class="text-royalBlue hover:text-quickSand transition-colors font-semibold bg-quickSand/20 px-3 py-1.5 rounded-lg text-royalBlue">Gabung & KTA</a>
+                    <a href="#faq-section" class="text-royalBlue hover:text-quickSand transition-colors">FAQ Cari</a>
+                    <button onclick="toggleModal('login-modal')" class="bg-gradient-to-r from-sapphire to-royalBlue text-white px-5 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:brightness-110 transition-all border border-white/10 tracking-wide">
+                        LOGIN PORTAL
+                    </button>
+                </div>
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-royalBlue hover:text-sapphire p-2 focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-3 shadow-xl transition-all duration-300">
+            <a href="#hero" class="block py-2 px-3 rounded-md text-royalBlue hover:bg-swanWing hover:text-quickSand transition-all">Beranda</a>
+            <a href="#pilar" class="block py-2 px-3 rounded-md text-royalBlue hover:bg-swanWing hover:text-quickSand transition-all">Pilar Utama</a>
+            <a href="#tentang" class="block py-2 px-3 rounded-md text-royalBlue hover:bg-swanWing hover:text-quickSand transition-all">Profil & Struktur</a>
+            <a href="#layanan" class="block py-2 px-3 rounded-md text-royalBlue hover:bg-swanWing hover:text-quickSand transition-all">Layanan</a>
+            <a href="#join-interaktif" class="block py-2 px-3 rounded-md font-semibold text-royalBlue hover:bg-swanWing hover:text-quickSand transition-all">Gabung & KTA</a>
+            <a href="#faq-section" class="block py-2 px-3 rounded-md text-royalBlue hover:bg-swanWing hover:text-quickSand transition-all">FAQ Cari</a>
+            <button onclick="toggleModal('login-modal'); document.getElementById('mobile-menu-btn').click();" class="w-full text-center bg-gradient-to-r from-sapphire to-royalBlue text-white py-3 rounded-lg font-semibold shadow-md">
+                LOGIN PORTAL
+            </button>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-white via-swanWing to-shellstone/20">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-quickSand/20 rounded-full filter blur-3xl -z-10 animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-sapphire/10 rounded-full filter blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sapphire/10 text-royalBlue font-inter font-semibold text-xs tracking-wider uppercase border border-sapphire/20">
+                    <i class="fas fa-check-circle text-emerald-600"></i> Asosiasi Profesi Resmi — Wilayah Jawa Tengah
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-royalBlue font-hero-title leading-tight">
+                    ASPAPI <span class="bg-gradient-to-r from-sapphire to-quickSand bg-clip-text text-transparent">Jawa Tengah</span>
+                </h1>
+                <p class="text-lg text-slate-600 font-medium font-hero-subtitle max-w-2xl mx-auto lg:mx-0">
+                    Asosiasi Sarjana dan Praktisi Administrasi Perkantoran Indonesia
+                </p>
+                <p class="text-sm italic text-slate-500 font-serif border-l-4 border-quickSand pl-4 py-1 max-w-xl mx-auto lg:mx-0">
+                    "Menyelaraskan kompetensi akademik dan praktis guna menjawab tantangan otomatisasi serta transformasi digital tata kelola perkantoran modern."
+                </p>
+                
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm text-left max-w-2xl mx-auto lg:mx-0">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-triangle text-amber-600 text-lg mt-0.5 animate-bounce"></i>
+                        <div>
+                            <h4 class="font-bold text-amber-900 font-inter text-sm">Pemberitahuan Penting:</h4>
+                            <p class="text-xs text-amber-800 leading-relaxed mt-1">
+                                Batas akhir sinkronisasi berkas keanggotaan dan verifikasi nomor registrasi nasional gelombang ini akan segera dikunci. Pastikan status Anda 'Terdaftar'!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 pt-2">
+                    <a href="#join-interaktif" class="bg-royalBlue hover:bg-sapphire text-white font-inter font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 tracking-wide">
+                        Simulasi KTA & Daftar Baru
+                    </a>
+                    <a href="#layanan" class="bg-white/80 backdrop-blur border border-slate-300 hover:border-royalBlue text-royalBlue font-inter font-semibold px-8 py-3.5 rounded-xl shadow-sm hover:bg-white transition-all text-center">
+                        Pelajari Layanan
+                    </a>
+                </div>
+            </div>
+
+            <div id="stats" class="lg:col-span-5 bg-white/70 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-xl border border-white/60 space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <h3 class="font-hero-subtitle font-bold text-royalBlue text-lg">Data & Capaian</h3>
+                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-red-100 text-red-600 px-2.5 py-1 rounded-full border border-red-200">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Statistik Real-time
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:scale-[1.02] transition-transform">
+                        <span class="block text-xs text-slate-400 font-medium uppercase tracking-wider">Anggota Aktif</span>
+                        <span class="block text-2xl font-extrabold text-royalBlue mt-1 font-inter">45+</span>
+                        <span class="text-[10px] text-emerald-600 font-semibold"><i class="fas fa-arrow-up"></i> Terverifikasi</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:scale-[1.02] transition-transform">
+                        <span class="block text-xs text-slate-400 font-medium uppercase tracking-wider">Layanan Aktif</span>
+                        <span class="block text-2xl font-extrabold text-sapphire mt-1 font-inter">12</span>
+                        <span class="text-[10px] text-slate-500">Pilar Utama Pendidikan</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:scale-[1.02] transition-transform">
+                        <span class="block text-xs text-slate-400 font-medium uppercase tracking-wider">Instansi Mitra</span>
+                        <span class="block text-2xl font-extrabold text-sapphire mt-1 font-inter">85+</span>
+                        <span class="text-[10px] text-quickSand font-bold">SMK & Kampus</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:scale-[1.02] transition-transform">
+                        <span class="block text-xs text-slate-400 font-medium uppercase tracking-wider">Sertifikasi</span>
+                        <span class="block text-2xl font-extrabold text-royalBlue mt-1 font-inter">3,500+</span>
+                        <span class="text-[10px] text-emerald-600 font-semibold"><i class="fas fa-check"></i> SKKNI Nasional</span>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-royalBlue to-sapphire text-white p-4 rounded-2xl shadow-inner">
+                    <span class="text-xs font-bold uppercase tracking-widest text-quickSand block mb-1"><i class="fas fa-lightbulb"></i> Tips Hari Ini</span>
+                    <p class="text-xs text-slate-200 leading-relaxed font-light">
+                        Gunakan fitur **Lacak Berkas** secara berkala pada dashboard untuk memastikan nomor registrasi nasional Anda telah tersinkronisasi penuh dengan database pusat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilar" class="py-16 bg-white border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-quickSand tracking-widest uppercase block mb-2">Pilar Organisasi</span>
+                <h2 class="text-3xl font-bold text-royalBlue font-hero-subtitle">4 Pilar Kontribusi Utama ASPAPI</h2>
+                <p class="text-sm text-slate-500 mt-2">Mendedikasikan profesionalisme untuk membangun ekosistem administrasi modern di wilayah Jawa Tengah.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group bg-swanWing p-6 rounded-2xl border border-slate-200/50 hover:bg-royalBlue hover:text-white transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royalBlue text-quickSand group-hover:bg-quickSand group-hover:text-royalBlue rounded-xl flex items-center justify-center text-xl shadow-sm mb-4 transition-colors">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 font-hero-subtitle">Standardisasi Pendidik</h3>
+                    <p class="text-xs text-slate-500 group-hover:text-slate-300 leading-relaxed">
+                        Meningkatkan kapabilitas guru SMK dan dosen perguruan tinggi melalui pelatihan administrasi digital terkini.
+                    </p>
+                </div>
+                <div class="group bg-swanWing p-6 rounded-2xl border border-slate-200/50 hover:bg-royalBlue hover:text-white transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royalBlue text-quickSand group-hover:bg-quickSand group-hover:text-royalBlue rounded-xl flex items-center justify-center text-xl shadow-sm mb-4 transition-colors">
+                        <i class="fas fa-synagogue"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 font-hero-subtitle">Sinkronisasi Kurikulum</h3>
+                    <p class="text-xs text-slate-500 group-hover:text-slate-300 leading-relaxed">
+                        Menyelaraskan kurikulum institusi pendidikan agar selaras dengan kebutuhan nyata Dunia Usaha & Industri (DUDI).
+                    </p>
+                </div>
+                <div class="group bg-swanWing p-6 rounded-2xl border border-slate-200/50 hover:bg-royalBlue hover:text-white transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royalBlue text-quickSand group-hover:bg-quickSand group-hover:text-royalBlue rounded-xl flex items-center justify-center text-xl shadow-sm mb-4 transition-colors">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 font-hero-subtitle">Sertifikasi Kompetensi</h3>
+                    <p class="text-xs text-slate-500 group-hover:text-slate-300 leading-relaxed">
+                        Memfasilitasi uji sertifikasi profesi bagi siswa dan mahasiswa untuk menjamin kesiapan daya saing global.
+                    </p>
+                </div>
+                <div class="group bg-swanWing p-6 rounded-2xl border border-slate-200/50 hover:bg-royalBlue hover:text-white transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royalBlue text-quickSand group-hover:bg-quickSand group-hover:text-royalBlue rounded-xl flex items-center justify-center text-xl shadow-sm mb-4 transition-colors">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 font-hero-subtitle">Kemitraan Strategis</h3>
+                    <p class="text-xs text-slate-500 group-hover:text-slate-300 leading-relaxed">
+                        Membangun jembatan inklusif penyediaan bursa kerja (talent pool) serta program magang terstruktur bagi lulusan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="py-16 bg-swanWing">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="relative p-3 bg-white rounded-3xl shadow-xl border border-slate-200/60 group">
+                        <div class="absolute -top-4 -right-4 bg-quickSand text-royalBlue font-bold text-xs px-4 py-2 rounded-xl shadow-md z-10">
+                            Sejak 2011
+                        </div>
+                        <div class="w-full h-80 rounded-2xl bg-gradient-to-br from-royalBlue to-sapphire flex flex-col justify-center items-center text-white p-6 text-center relative overflow-hidden">
+                            <i class="fas fa-users text-6xl text-quickSand/40 mb-4 transform group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-hero-subtitle font-bold text-xl text-quickSand">Sinergi Akademisi & Praktisi</h4>
+                            <p class="text-xs text-slate-300 mt-2 max-w-xs">Mewujudkan ekosistem administrasi perkantoran modern yang responsif terhadap perubahan era teknologi informasi.</p>
+                            <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-quickSand via-white to-quickSand"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-royalBlue to-sapphire p-6 rounded-2xl text-white shadow-lg relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 text-white/5 text-8xl"><i class="fas fa-award"></i></div>
+                        <h4 class="font-hero-subtitle font-bold text-base text-quickSand mb-2">Komitmen Keberlanjutan Organisasi</h4>
+                        <p class="text-xs text-slate-200 leading-relaxed">
+                            Kami mendedikasikan seluruh sumber daya dan keahlian kolektif untuk secara konsisten mengawal akselerasi kompetensi digital di lingkungan vokasi dan korporasi Jawa Tengah.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-sapphire tracking-widest uppercase block mb-1">Mengenal Organisasi</span>
+                        <h2 class="text-3xl font-bold text-royalBlue font-hero-subtitle">Profil, Legalitas & Pengurus</h2>
+                    </div>
+
+                    <div class="flex flex-wrap border-b border-slate-300 gap-2">
+                        <button onclick="switchTab('tab-profil')" id="btn-tab-profil" class="tab-btn px-4 py-2.5 font-inter font-semibold text-sm border-b-2 border-royalBlue text-royalBlue transition-all">
+                            Profil
+                        </button>
+                        <button onclick="switchTab('tab-visi')" id="btn-tab-visi" class="tab-btn px-4 py-2.5 font-inter font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-royalBlue transition-all">
+                            Visi & Misi
+                        </button>
+                        <button onclick="switchTab('tab-legal')" id="btn-tab-legal" class="tab-btn px-4 py-2.5 font-inter font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-royalBlue transition-all">
+                            Aspek Legal
+                        </button>
+                        <button onclick="switchTab('tab-struktur')" id="btn-tab-struktur" class="tab-btn px-4 py-2.5 font-inter font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-royalBlue transition-all">
+                            Struktur Pengurus
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 min-h-[300px]">
+                        <div id="tab-profil" class="tab-content space-y-4">
+                            <h3 class="font-bold text-lg text-royalBlue border-b pb-2">Pengembangan Ilmu & Penyelarasan DUDI</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                <strong>ASPAPI Wilayah Jawa Tengah</strong> hadir sebagai wadah berkumpulnya para akademisi, dosen, guru, dan praktisi di bidang manajemen serta administrasi perkantoran. Fokus utama kami adalah berkolaborasi mengembangkan khazanah keilmuan dan melakukan akselerasi praktis guna menyelaraskan kurikulum institusi pendidikan dengan kebutuhan riil Dunia Usaha dan Dunia Industri (DUDI).
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Melalui jejaring yang kokoh, kami terus berkomitmen memberikan kontribusi nyata dalam penyiapan SDM yang cakap teknologi, adaptif, serta memegang teguh etika profesionalisme kerja.
+                            </p>
+                        </div>
+
+                        <div id="tab-visi" class="tab-content hidden space-y-4">
+                            <h3 class="font-bold text-lg text-royalBlue border-b pb-2">Visi & Misi Utama</h3>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-quickSand bg-royalBlue/5 px-2 py-1 rounded inline-block">Visi</h4>
+                                <p class="text-sm text-slate-600 italic mt-1">"Menjadi asosiasi profesi yang unggul, tepercaya, dan berdaya saing internasional dalam pengembangan keilmuan serta praktik administrasi perkantoran modern."</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-quickSand bg-royalBlue/5 px-2 py-1 rounded inline-block">Misi</h4>
+                                <ul class="list-none text-sm text-slate-600 space-y-2 mt-2">
+                                    <li><i class="fas fa-chevron-right text-quickSand text-xs mr-2"></i> Mengembangkan keilmuan administrasi berbasis transformasi digital yang responsif.</li>
+                                    <li><i class="fas fa-chevron-right text-quickSand text-xs mr-2"></i> Meningkatkan kompetensi pedagogik dan profesionalitas SDM pendidik & praktisi.</li>
+                                    <li><i class="fas fa-chevron-right text-quickSand text-xs mr-2"></i> Mengawal proses link & match kurikulum nasional mengacu pada skema SKKNI.</li>
+                                    <li><i class="fas fa-chevron-right text-quickSand text-xs mr-2"></i> Menyelenggarakan pengabdian masyarakat dan memperluas jejaring kemitraan strategis.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="tab-legal" class="tab-content hidden space-y-4">
+                            <h3 class="font-bold text-lg text-royalBlue border-b pb-2">Legalitas & SK Resmi Organisasi</h3>
+                            <p class="text-xs text-slate-500 mb-2">Seluruh operasional ASPAPI Jawa Tengah berjalan di bawah payung hukum resmi Kementerian Hukum dan HAM serta SK Pengurus Pusat.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="p-3 bg-swanWing rounded-xl border border-slate-200">
+                                    <span class="block text-[10px] uppercase text-slate-400 font-bold">Akte Pendirian Pusat</span>
+                                    <span class="block text-xs font-bold text-royalBlue mt-0.5">AHU-0001245.AH.01.07</span>
+                                </div>
+                                <div class="p-3 bg-swanWing rounded-xl border border-slate-200">
+                                    <span class="block text-[10px] uppercase text-slate-400 font-bold">SK Wilayah Jateng</span>
+                                    <span class="block text-xs font-bold text-royalBlue mt-0.5">No. 042/SK-PP/ASPAPI/XI/2024</span>
+                                </div>
+                                <div class="p-3 bg-swanWing rounded-xl border border-slate-200">
+                                    <span class="block text-[10px] uppercase text-slate-400 font-bold">Rekomendasi Operasional</span>
+                                    <span class="block text-xs font-bold text-royalBlue mt-0.5">Dinas Pendidikan & Kebudayaan Provinsi</span>
+                                </div>
+                                <div class="p-3 bg-swanWing rounded-xl border border-slate-200">
+                                    <span class="block text-[10px] uppercase text-slate-400 font-bold">Standar Sertifikasi</span>
+                                    <span class="block text-xs font-bold text-royalBlue mt-0.5">Lisensi Badan Nasional Sertifikasi Profesi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-struktur" class="tab-content hidden space-y-4">
+                            <h3 class="font-bold text-lg text-royalBlue border-b pb-2">Struktur dan Pengurus</h3>
+                            
+                            <div class="p-4 bg-royalBlue text-white rounded-xl shadow-sm flex flex-col items-center justify-center">
+    <div class="w-24 h-24 bg-white rounded-full overflow-hidden border-2 border-quickSand mb-3">
+        <img src=https://i.ibb.co.com/hJjvBRHN/image.png" alt="Prof. Dr. S Martono, M.Si.
+" border="0" alt="Prof. Dr. S. Martono, M.Si" class="w-full h-full object-cover">
+    </div>
+    <span class="block text-[9px] text-quickSand uppercase font-bold">Ketua</span>
+    <span class="text-xs font-bold">Prof. Dr. S. Martono, M.Si</span>
+</div>
+
+<div class="p-2 bg-sapphire text-white rounded-xl shadow-sm flex flex-col items-center justify-center">
+    <span class="block text-[9px] text-quickSand uppercase font-bold">Sekretaris</span>
+    <span class="text-xs font-bold">Ahmad Saeroji, S.Pd., M.Pd</span>
+    <span class="block text-[9px] opacity-70">NIA: 33741170018</span>
+</div>
+
+<div class="p-2 bg-slate-700 text-white rounded-xl shadow-sm flex flex-col items-center justify-center">
+    <span class="block text-[9px] text-quickSand uppercase font-bold">Ketua Bidang</span>
+    <span class="text-xs font-bold">Agung Kuswantara</span>
+    <span class="block text-[9px] opacity-70">NIA: 3374119214</span>                              
+</div>
+
+                            <div>
+                                <span class="block text-xs font-bold text-royalBlue mb-2"><i class="fas fa-users-cog"></i> Daftar Anggota Pengurus Terverifikasi (45 Personel):</span>
+                                <div class="w-full h-56 overflow-y-auto border border-slate-200 rounded-xl bg-swanWing/50 p-3 space-y-1.5 text-xs text-slate-700 shadow-inner font-mono">
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>1. AHMAD JAENUDIN</span><span class="text-slate-400 text-[11px]">NIA: 33741230101</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>2. AHMAD SUYANTO</span><span class="text-slate-400 text-[11px]">NIA: 33221230001</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>3. ANIS SUSANTI</span><span class="text-slate-400 text-[11px]">NIA: 33042240217</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>4. ANITA RAHAYU</span><span class="text-slate-400 text-[11px]">NIA: 33082240204</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>5. ANTON SUBARNO, Ph.D.</span><span class="text-slate-400 text-[11px]">NIA: 33721100001</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>6. ARIA MULYAPRADANA</span><span class="text-slate-400 text-[11px]">NIA: 33021250256</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>7. ARIF WAHYU WIRAWAN</span><span class="text-slate-400 text-[11px]">NIA: 33051170250</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>8. ARY DWI ANJARINI</span><span class="text-slate-400 text-[11px]">NIA: 33262250258</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>9. ASSOFIQ DWI KURNIAWAN</span><span class="text-slate-400 text-[11px]">NIA: 33081230208</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>10. AULIA PRIMA KHARISMAPUTRA</span><span class="text-slate-400 text-[11px]">NIA: 33111230251</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>11. DWI ASTARANI ASLINDAR</span><span class="text-slate-400 text-[11px]">NIA: 33752250255</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>12. DWI LESTARI RENANINGTYAS</span><span class="text-slate-400 text-[11px]">NIA: 33202230131</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>13. ENDANG SULISTIYANI</span><span class="text-slate-400 text-[11px]">NIA: 33742240219</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>14. Prof. Dr. ENDANG SUPARDI</span><span class="text-slate-400 text-[11px]">NIA: 32171120087</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>15. EVA PURNAMASARI</span><span class="text-slate-400 text-[11px]">NIA: 33222240239</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>16. FAHMI ULIN NI'MAH</span><span class="text-slate-400 text-[11px]">NIA: 33192260276</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>17. HANUM KARTIKASARI</span><span class="text-slate-400 text-[11px]">NIA: 33142230075</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>18. HENGKY PRAMUSINTO</span><span class="text-slate-400 text-[11px]">NIA: 33741190212</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>19. IRIN MIRRAH LUTHFIA, S.ST</span><span class="text-slate-400 text-[11px]">NIA: 33742240237</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>20. ISMIYATI</span><span class="text-slate-400 text-[11px]">NIA: 33742190213</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>21. KARTIKA WIDIYAH ASTUTI</span><span class="text-slate-400 text-[11px]">NIA: 33202240147</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>22. KRISTIN WAHYUNI</span><span class="text-slate-400 text-[11px]">NIA: 33202230130</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>23. Dr. LINA RIFDA NAUFALIN</span><span class="text-slate-400 text-[11px]">NIA: 33022200001</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>24. LOLA KURNIA PITALOKA</span><span class="text-slate-400 text-[11px]">NIA: 33742230103</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>25. LUSI SUWANDARI</span><span class="text-slate-400 text-[11px]">NIA: 33022240153</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>26. MAFTURRAHMAN</span><span class="text-slate-400 text-[11px]">NIA: 33261250257</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>27. MONA INAYAH PRATIWI</span><span class="text-slate-400 text-[11px]">NIA: 33742240239</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>28. MUHAMAD NUKHA MURTADLO</span><span class="text-slate-400 text-[11px]">NIA: 33741260001</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>29. NINA OKTARINA</span><span class="text-slate-400 text-[11px]">NIA: 33742190215</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>30. NUR CHOIRUL AFIF</span><span class="text-slate-400 text-[11px]">NIA: 33021240156</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>31. NUR RAHMI AKBARINI</span><span class="font-sans text-emerald-600 font-semibold text-[10px] bg-emerald-100 px-2 py-0.5 rounded">Terdaftar</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>32. PATNI NINGHARDJANTI</span><span class="text-slate-400 text-[11px]">NIA: 33132100051</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>33. RETNO KURNIASIH</span><span class="text-slate-400 text-[11px]">NIA: 33022240154</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>34. SEPTI KURNIAWATI</span><span class="text-slate-400 text-[11px]">NIA: 33742240132</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>35. SOFIATUL KHOTIMAH</span><span class="text-slate-400 text-[11px]">NIA: 33022240157</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>36. SRI HASTUTI</span><span class="text-slate-400 text-[11px]">NIA: 33212240206</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>37. SRI MULAT SETYANINGSIH</span><span class="text-slate-400 text-[11px]">NIA: 33112240207</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>38. SUKANAH</span><span class="text-slate-400 text-[11px]">NIA: 33172240205</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>39. Dr. SUSANTININGRUM</span><span class="text-slate-400 text-[11px]">NIA: 33132180056</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>40. SUTIRMAN (UNY)</span><span class="text-slate-400 text-[11px]">NIA: 33101110006</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>41. SUTIRMAN (Yogyakarta)</span><span class="text-slate-400 text-[11px]">NIA: 33101120275</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>42. TEGUH HARDI RAHARJO</span><span class="text-slate-400 text-[11px]">NIA: 33741230068</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>43. TRI MINARNI</span><span class="text-slate-400 text-[11px]">NIA: 33742240134</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>44. TUSYANAH</span><span class="text-slate-400 text-[11px]">NIA: 33232230160</span></div>
+                                    <div class="flex justify-between p-1.5 bg-white rounded border border-slate-200/60 hover:bg-slate-50"><span>45. Prof. Dr. WIEDY MURTINI</span><span class="text-slate-400 text-[11px]">NIA: 33102100044</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-16 bg-white border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sapphire tracking-widest uppercase block mb-2">Skema Mutu Layanan</span>
+                <h2 class="text-3xl font-bold text-royalBlue font-hero-subtitle">Klaster Layanan ASPAPI Jawa Tengah</h2>
+                <p class="text-sm text-slate-500 mt-2">
+                    Menjembatani kebutuhan dunia pendidikan (sekolah & kampus) dengan tuntutan kompetensi riil di Dunia Usaha dan Dunia Industri (DUDI).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-swanWing rounded-2xl p-6 border border-slate-100 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                        <div class="w-10 h-10 bg-sapphire text-white rounded-xl flex items-center justify-center text-lg shadow-sm"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="font-bold text-lg text-royalBlue font-hero-subtitle">1. Untuk Guru SMK & Dosen PT</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-sapphire mt-0.5"></i>
+                            <div><strong>Workshop Kompetensi Digital:</strong> Otomatisasi, cloud computing, e-filing, dan optimasi AI administrasi.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-sapphire mt-0.5"></i>
+                            <div><strong>Publikasi Ilmiah:</strong> Pendampingan jurnal nasional, call for papers, & seminar berkala.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-swanWing rounded-2xl p-6 border border-slate-100 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                        <div class="w-10 h-10 bg-royalBlue text-white rounded-xl flex items-center justify-center text-lg shadow-sm"><i class="fas fa-school"></i></div>
+                        <h3 class="font-bold text-lg text-royalBlue font-hero-subtitle">2. Untuk Institusi (Sekolah & Kampus)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-royalBlue mt-0.5"></i>
+                            <div><strong>Reviu Kurikulum:</strong> Penyelarasan jurusan MPLB/OTKP berbasis SKKNI terbaru.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-royalBlue mt-0.5"></i>
+                            <div><strong>Kemitraan (MoU):</strong> Jaringan kerja sama industri terpercaya, guru tamu, dan penyaluran.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-swanWing rounded-2xl p-6 border border-slate-100 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                        <div class="w-10 h-10 bg-royalBlue text-white rounded-xl flex items-center justify-center text-lg shadow-sm"><i class="fas fa-user-friends"></i></div>
+                        <h3 class="font-bold text-lg text-royalBlue font-hero-subtitle">3. Untuk Siswa & Mahasiswa</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-royalBlue mt-0.5"></i>
+                            <div><strong>Uji Kompetensi:</strong> Pelaksanaan ujian sertifikasi keahlian terakreditasi LSP/BNSP.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-royalBlue mt-0.5"></i>
+                            <div><strong>Career Coaching:</strong> Pembuatan CV ATS-friendly, simulasi interview, & business etiquette.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-swanWing rounded-2xl p-6 border border-slate-100 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                        <div class="w-10 h-10 bg-sapphire text-white rounded-xl flex items-center justify-center text-lg shadow-sm"><i class="fas fa-briefcase"></i></div>
+                        <h3 class="font-bold text-lg text-royalBlue font-hero-subtitle">4. Untuk Dunia Usaha & Industri (DUDI)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-sapphire mt-0.5"></i>
+                            <div><strong>Talent Pool (Bursa Kerja):</strong> Rekomendasi cepat lulusan terbaik yang siap kerja operasional.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fas fa-check-circle text-sapphire mt-0.5"></i>
+                            <div><strong>In-House Training:</strong> Pelatihan kustom tata kelola kantor modern & kearsipan digital korporat.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join-interaktif" class="py-16 bg-gradient-to-br from-swanWing via-slate-100 to-shellstone/20 border-t border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sapphire tracking-widest uppercase block mb-2"><i class="fas fa-magic text-quickSand"></i> Fitur Interaktif</span>
+                <h2 class="text-3xl font-bold text-royalBlue font-hero-subtitle">Simulasi Kartu Anggota (KTA) & Daftar Instan</h2>
+                <p class="text-sm text-slate-500 mt-2">
+                    Lengkapi form interaktif di bawah untuk melihat tampilan KTA digital Anda secara instan sebelum melakukan submisi final ke verifikator wilayah Jawa Tengah.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-200/60">
+                    <div class="flex items-center justify-between mb-6 border-b pb-4">
+                        <span class="text-sm font-bold text-royalBlue uppercase tracking-wider"><i class="fas fa-edit mr-2 text-quickSand"></i>Data Calon Anggota</span>
+                        <div class="flex gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-300 animate-pulse"></span>
+                        </div>
+                    </div>
+
+                    <form id="kta-form" class="space-y-4 text-sm" onsubmit="submitFormGabung(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold text-slate-700 text-xs uppercase mb-1">Nama Lengkap & Gelar</label>
+                                <input type="text" id="input-nama" required oninput="updateCard()" placeholder="Contoh: Dr. Budi Santoso, M.Pd" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50 transition-all font-semibold">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-700 text-xs uppercase mb-1">Klasifikasi Anggota</label>
+                                <select id="input-peran" onchange="updateCard()" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50 font-semibold">
+                                    <option value="Dosen Akademisi">Dosen / Akademisi</option>
+                                    <option value="Guru Vokasi">Guru Vokasi (MPLB/OTKP)</option>
+                                    <option value="Praktisi Kantor">Praktisi Perkantoran</option>
+                                    <option value="Mahasiswa Vokasi">Mahasiswa Administrasi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold text-slate-700 text-xs uppercase mb-1">Instansi / Sekolah / Kampus</label>
+                                <input type="text" id="input-instansi" required oninput="updateCard()" placeholder="Contoh: SMKN 1 Semarang" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50 transition-all">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-700 text-xs uppercase mb-1">Kabupaten/Kota Domisili</label>
+                                <input type="text" id="input-kota" required oninput="updateCard()" placeholder="Contoh: Surakarta" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50 transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-bold text-slate-700 text-xs uppercase mb-1">Foto Profil Anggota (Simulasi Upload)</label>
+                            <div class="flex items-center gap-4">
+                                <div class="relative w-16 h-16 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center overflow-hidden shrink-0">
+                                    <img id="temp-photo-preview" src="https://placehold.co/150x150/112250/E0C68F?text=Foto" class="w-full h-full object-cover" alt="Preview">
+                                </div>
+                                <div class="grow">
+                                    <input type="file" id="input-foto" accept="image/*" onchange="handlePhotoUpload(event)" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-royalBlue/10 file:text-royalBlue hover:file:bg-royalBlue/20 cursor-pointer">
+                                    <span class="text-[10px] text-slate-400 block mt-1">Gunakan foto formal latar belakang bebas untuk preview terbaik.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <span class="block text-xs font-bold text-royalBlue uppercase tracking-wider mb-2"><i class="fas fa-gift text-quickSand"></i> Estimasi Keuntungan Keanggotaan:</span>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-600" id="benefit-list">
+                                <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Publikasi Jurnal Terakreditasi</div>
+                                <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Workshop SKKNI Gratis</div>
+                                <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Kartu KTA Fisik & Digital</div>
+                                <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Sertifikasi LSP Terkoneksi</div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-royalBlue to-sapphire text-white py-3.5 rounded-xl font-bold uppercase tracking-wider text-xs shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-id-card"></i> Ajukan Berkas & Cetak KTA
+                        </button>
+                    </form>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col items-center justify-center sticky top-24">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> Preview Real-time KTA Anda
+                    </span>
+                    
+                    <div id="kta-card" class="w-full max-w-sm h-60 rounded-2xl bg-gradient-to-br from-royalBlue via-slate-900 to-royalBlue p-5 relative overflow-hidden text-white shadow-2xl border-2 border-quickSand/50 flex flex-col justify-between transform hover:scale-105 transition-all duration-300">
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-sapphire/20 rounded-full filter blur-xl pointer-events-none"></div>
+                        <div class="absolute -left-6 -top-6 w-32 h-32 bg-quickSand/10 rounded-full filter blur-lg pointer-events-none"></div>
+                        <div class="absolute top-0 right-0 w-24 h-full bg-white/[0.03] skew-x-12 transform origin-top pointer-events-none"></div>
+
+                        <div class="flex justify-between items-start z-10">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center border border-quickSand/40">
+                                    <i class="fas fa-university text-quickSand text-xs"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] font-extrabold tracking-widest text-white leading-none">[ ASPAPI ]</span>
+                                    <span class="block text-[7px] text-quickSand tracking-wider uppercase font-bold leading-tight">Jawa Tengah</span>
+                                </div>
+                            </div>
+                            <span class="text-[7px] bg-quickSand/20 text-quickSand px-2 py-0.5 rounded-full border border-quickSand/30 uppercase font-mono font-bold">KTA DIGITAL</span>
+                        </div>
+
+                        <div class="flex gap-4 items-center my-auto z-10">
+                            <div class="w-16 h-20 rounded-lg border-2 border-quickSand overflow-hidden bg-slate-800 shadow-md shrink-0">
+                                <img id="kta-preview-image" src="https://placehold.co/150x200/112250/E0C68F?text=Foto+Formal" class="w-full h-full object-cover" alt="Avatar">
+                            </div>
+                            <div class="space-y-1 overflow-hidden">
+                                <h4 id="kta-preview-nama" class="font-hero-subtitle font-bold text-sm text-quickSand tracking-wide truncate">NAMA LENGKAP</h4>
+                                <div class="space-y-0.5">
+                                    <div class="flex items-center gap-1.5 text-[10px] text-slate-300">
+                                        <i class="fas fa-user-tie text-[8px] text-quickSand"></i>
+                                        <span id="kta-preview-peran" class="truncate">Dosen Akademisi</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-[9px] text-slate-300">
+                                        <i class="fas fa-building text-[8px] text-quickSand"></i>
+                                        <span id="kta-preview-instansi" class="truncate">Nama Instansi</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-[9px] text-slate-300">
+                                        <i class="fas fa-map-marker-alt text-[8px] text-quickSand"></i>
+                                        <span id="kta-preview-kota" class="truncate">Lokasi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-end border-t border-white/10 pt-2 z-10">
+                            <div>
+                                <span class="block text-[7px] text-slate-400 uppercase leading-none">Nomor Induk Anggota (NIA)</span>
+                                <span id="kta-preview-nia" class="block text-xs font-mono font-bold tracking-widest text-white mt-0.5">NIA.337426XXXX</span>
+                            </div>
+                            <div class="w-8 h-8 bg-white p-0.5 rounded border border-slate-300 flex items-center justify-center shadow-inner">
+                                <svg class="w-full h-full text-slate-900" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2 2h6v6H2V2zm1 1v4h4V3H3zm0 11h4v4H3v-4zm11-11h6v6h-6V3zm1 1v4h4V4h-4zM2 14h6v6H2v-6zm12 0h2v2h-2v-2zm2 2h2v2h-2v-2zm-2 2h2v2h-2v-2zm6-4h2v6h-2v-6zm-2 4h2v2h-2v-2zm2-4V8h2v2h-2zm-2-2h2v2h-2V8zm-2 2h2v2h-2v-2zm-4-4h2v2H8V6zm4 0h2v2h-2V6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="downloadKTA()" class="mt-4 px-6 py-2 rounded-xl bg-white text-royalBlue hover:bg-slate-100 border border-slate-300 text-xs font-bold transition-all shadow-md flex items-center gap-2">
+                        <i class="fas fa-download"></i> Unduh Simulasi KTA (.PNG)
+                    </button>
+                    <span class="text-[9px] text-slate-400 mt-1">*KTA resmi diterbitkan lengkap setelah berkas fisik diverifikasi panitia.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="faq-section" class="py-16 bg-white border-t border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-bold text-sapphire tracking-widest uppercase block mb-2"><i class="fas fa-comments-dollar text-quickSand"></i> Pusat Bantuan</span>
+                <h2 class="text-3xl font-bold text-royalBlue font-hero-subtitle">Ada Pertanyaan? Cari Jawabannya</h2>
+                <p class="text-sm text-slate-500 mt-2">
+                    Masukkan kata kunci pertanyaan atau telusuri berdasarkan kategori di bawah untuk menemukan solusi masalah keanggotaan Anda secara kilat.
+                </p>
+            </div>
+
+            <div class="relative max-w-xl mx-auto mb-8">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-slate-400"></i>
+                </div>
+                <input type="text" id="faq-search-input" onkeyup="filterFAQ()" placeholder="Ketik kata kunci (contoh: 'NIA', 'Biaya', 'LSP')..." class="w-full pl-11 pr-4 py-3 rounded-full border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50 transition-all text-sm font-semibold text-royalBlue shadow-sm">
+                <button onclick="clearFaqSearch()" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600">
+                    <i class="fas fa-times-circle hidden" id="faq-search-clear"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button onclick="filterFaqCategory('all')" id="btn-faq-all" class="faq-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-royalBlue text-white shadow-sm transition-all">Semua Topik</button>
+                <button onclick="filterFaqCategory('keanggotaan')" id="btn-faq-keanggotaan" class="faq-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Keanggotaan & KTA</button>
+                <button onclick="filterFaqCategory('sertifikasi')" id="btn-faq-sertifikasi" class="faq-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Sertifikasi & Diklat</button>
+                <button onclick="filterFaqCategory('kemitraan')" id="btn-faq-kemitraan" class="faq-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Kemitraan & MoU</button>
+            </div>
+
+            <div class="space-y-4" id="faq-container">
+                <div class="faq-item bg-swanWing/40 border border-slate-200/80 rounded-2xl overflow-hidden transition-all duration-200" data-category="keanggotaan">
+                    <button onclick="toggleFaqNew(this)" class="w-full text-left p-5 font-semibold text-sm sm:text-base text-royalBlue flex justify-between items-center bg-swanWing/20 hover:bg-swanWing/50 transition-colors">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-royalBlue/10 flex items-center justify-center text-xs text-royalBlue"><i class="fas fa-id-badge"></i></span>
+                            Bagaimana cara mendapatkan Nomor Induk Anggota (NIA) ASPAPI?
+                        </span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 text-sm text-slate-600 border-t border-slate-200 leading-relaxed bg-white">
+                        Anda harus mengisi formulir pendaftaran di menu Registrasi Baru (atau langsung menggunakan fitur generator di halaman ini), mengunggah berkas ijazah linear atau surat keterangan praktisi, serta menyelesaikan validasi administrasi berkas. NIA akan terbit otomatis setelah disetujui pengurus wilayah Jawa Tengah.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-swanWing/40 border border-slate-200/80 rounded-2xl overflow-hidden transition-all duration-200" data-category="sertifikasi">
+                    <button onclick="toggleFaqNew(this)" class="w-full text-left p-5 font-semibold text-sm sm:text-base text-royalBlue flex justify-between items-center bg-swanWing/20 hover:bg-swanWing/50 transition-colors">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-royalBlue/10 flex items-center justify-center text-xs text-royalBlue"><i class="fas fa-award"></i></span>
+                            Apakah sertifikasi kompetensi ASPAPI diakui secara nasional?
+                        </span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 text-sm text-slate-600 border-t border-slate-200 leading-relaxed bg-white">
+                        Ya. Seluruh program sertifikasi profesi diselenggarakan berjejaring bersama Lembaga Sertifikasi Profesi (LSP) resmi yang berlisensi dari Badan Nasional Sertifikasi Profesi (BNSP) Republik Indonesia.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-swanWing/40 border border-slate-200/80 rounded-2xl overflow-hidden transition-all duration-200" data-category="keanggotaan">
+                    <button onclick="toggleFaqNew(this)" class="w-full text-left p-5 font-semibold text-sm sm:text-base text-royalBlue flex justify-between items-center bg-swanWing/20 hover:bg-swanWing/50 transition-colors">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-royalBlue/10 flex items-center justify-center text-xs text-royalBlue"><i class="fas fa-wallet"></i></span>
+                            Berapa biaya pendaftaran keanggotaan wilayah Jawa Tengah?
+                        </span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 text-sm text-slate-600 border-t border-slate-200 leading-relaxed bg-white">
+                        Biaya administrasi pendaftaran dan iuran sukarela tahunan telah disesuaikan berdasarkan AD/ART. Untuk guru vokasi/SMK dikenakan Rp150.000, dosen/praktisi Rp250.000, dan mahasiswa cukup Rp50.000 (sekali bayar selama masa studi).
+                    </div>
+                </div>
+            </div>
+
+            <div id="faq-no-results" class="hidden text-center py-10 bg-swanWing/30 rounded-2xl border border-dashed border-slate-300 mt-4">
+                <i class="fas fa-search-minus text-4xl text-slate-400 mb-3 block"></i>
+                <h4 class="font-bold text-slate-700">Pertanyaan Tidak Ditemukan</h4>
+                <p class="text-xs text-slate-500 mt-1">Coba gunakan kata kunci lain seperti "MoU", "Biaya", atau "Kompetensi".</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="berita" class="py-16 bg-swanWing/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="font-hero-subtitle font-bold text-2xl text-royalBlue border-b-2 border-quickSand pb-2"><i class="fas fa-newspaper text-sapphire"></i> Berita & Kegiatan Terbaru</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-4 items-start hover:shadow-md transition-shadow">
+                            <div class="flex gap-4 items-start w-full sm:w-auto">
+                                <div class="bg-sapphire text-white p-3 rounded-xl font-inter font-bold text-center text-xs min-w-[50px]">
+                                    22<br><span class="text-[9px] uppercase font-normal opacity-70">Jun</span>
+                                </div>
+                                <img src=""https://ibb.co.com/ymsK49Jp"><img src="https://i.ibb.co.com/bjdYb0nF/aspapi-jpeg.jpg" alt="aspapi-jpeg" border="0"" alt="Rapat Koordinasi Sinkronisasi Kurikulum Vokasi" class="w-20 h-20 object-cover rounded-lg border border-slate-200 shadow-sm flex-shrink-0">
+                            </div>
+                            <div>
+                                <a href="#" class="font-bold text-sm text-royalBlue hover:text-quickSand transition-colors block">Rapat Koordinasi Sinkronisasi Kurikulum Vokasi MPLB se-Jateng</a>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Pertemuan akbar ini membahas implementasi kecerdasan buatan dalam modul ajar administrasi perkantoran modern tingkat SMK...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-4 items-start hover:shadow-md transition-shadow">
+                            <div class="flex gap-4 items-start w-full sm:w-auto">
+                                <div class="bg-royalBlue text-white p-3 rounded-xl font-inter font-bold text-center text-xs min-w-[50px]">
+                                    14<br><span class="text-[9px] uppercase font-normal opacity-70">Mei</span>
+                                </div>
+                                <img src="https://i.ibb.co.com/3mkhWDC9/Whats-App-Image-2026-07-01-at-21-17-54-jpeg.jpg" alt="Whats-App-Image-2026-07-01-at-21-17-54-jpeg" border="0" alt="Workshop E-Filing dan Keamanan Dokumen Digital" class="w-20 h-20 object-cover rounded-lg border border-slate-200 shadow-sm flex-shrink-0">
+                            </div>
+                            <div>
+                                <a href="#" class="font-bold text-sm text-royalBlue hover:text-quickSand transition-colors block">Workshop E-Filing dan Keamanan Dokumen Digital Anggota ASPAPI</a>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Pemberian kompetensi teknis penyimpanan komputasi awan yang aman guna menyambut tata pamong digital terintegrasi...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="font-hero-subtitle font-bold text-2xl text-royalBlue border-b-2 border-quickSand pb-2"><i class="fas fa-bullhorn text-sapphire"></i> Agenda Mendatang</h3>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 space-y-4">
+                        <div class="border-l-4 border-royalBlue pl-3">
+                            <span class="text-[10px] uppercase font-bold text-quickSand tracking-wider block">Juli 2026</span>
+                            <h4 class="font-bold text-sm text-royalBlue">Sertifikasi Kompetensi Massal MPLB</h4>
+                            <p class="text-xs text-slate-500 mt-1">Uji kompetensi skema kearsipan & otomatisasi perkantoran untuk siswa SMK rujukan se-Solo Raya.</p>
+                        </div>
+                        <div class="border-l-4 border-sapphire pl-3">
+                            <span class="text-[10px] uppercase font-bold text-quickSand tracking-wider block">Agustus 2026</span>
+                            <h4 class="font-bold text-sm text-royalBlue">Rapat Kerja Wilayah (Rakerwil) V Jateng</h4>
+                            <p class="text-xs text-slate-500 mt-1">Konsolidasi program kerja tahunan pengurus cabang di Kampus Universitas Sebelas Maret (UNS).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="kontak" class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200/60 max-w-4xl mx-auto">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <h3 class="font-hero-subtitle font-bold text-2xl text-royalBlue">Hubungi Kami / Kirim Pesan Anggota</h3>
+                    <p class="text-xs text-slate-400 mt-1">Gunakan formulir enkripsi ini untuk mengajukan pertanyaan layanan atau mengirim masukan resmi kepada jajaran pengurus ASPAPI Jateng.</p>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                    <div class="space-y-1">
+                        <label class="block font-bold text-slate-700 text-xs uppercase">Nama Lengkap / Instansi</label>
+                        <input type="text" required placeholder="Contoh: Universitas Negeri Semarang" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-swanWing/30">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block font-bold text-slate-700 text-xs uppercase">Email Resmi</label>
+                        <input type="email" required placeholder="name@domain.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-swanWing/30">
+                    </div>
+                    <div class="space-y-1 sm:col-span-2">
+                        <label class="block font-bold text-slate-700 text-xs uppercase">Status / Keperluan Hubungan</label>
+                        <select class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-white">
+                            <option>Anggota Ber-NIA (Kirim Pesan Resmi Intern)</option>
+                            <option>Institusi Pendidikan (Permohonan Reviu Kurikulum/MoU)</option>
+                            <option>Umum / Pendaftaran Anggota Baru</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1 sm:col-span-2">
+                        <label class="block font-bold text-slate-700 text-xs uppercase">Isi Pesan Pendek</label>
+                        <textarea rows="4" required placeholder="Tuliskan detail permohonan atau substansi pesan Anda di sini..." class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-swanWing/30"></textarea>
+                    </div>
+                    <div class="sm:col-span-2 pt-2">
+                        <button type="submit" class="w-full bg-royalBlue hover:bg-sapphire text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all tracking-wide uppercase text-xs">
+                            Kirim Pesan Terverifikasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 text-sm pt-16 pb-8 border-t-4 border-quickSand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-slate-800 text-quickSand rounded-full flex items-center justify-center text-lg border border-slate-700">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div>
+                        <span class="block text-lg font-bold text-white font-hero-subtitle tracking-wider">[ ASPAPI JATENG ]</span>
+                        <span class="block text-[9px] text-slate-500 uppercase tracking-widest font-bold">Wilayah Kerja Jawa Tengah</span>
+                    </div>
+                </div>
+                <p class="text-xs leading-relaxed max-w-sm">
+                    <strong>Sekretariat Korespondensi Utama:</strong><br>
+                    Jl. Ir. Sutami, No. 36A, Kentingan, Jebres, Surakarta, Jawa Tengah 57126, Indonesia.
+                </p>
+                <div class="text-xs space-y-1.5 pt-1">
+                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-quickSand w-4"></i> info@aspapijateng.or.id</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-globe text-quickSand w-4"></i> www.aspapijateng.or.id</div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3">
+                <span class="block font-bold text-xs uppercase tracking-wider text-white font-hero-subtitle"><i class="fas fa-map-marked-alt text-quickSand"></i> Lokasi Peta Presisi (Surakarta)</span>
+                <div class="w-full h-48 rounded-xl overflow-hidden shadow-inner border border-slate-800 bg-slate-800">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.1215570076723!2d110.85412497415177!3d-7.561726074676106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16fdf94b3e33%3A0x27ec1e9cf06b2a09!2sJl.%20Ir.%20Sutami%2C%20Kentingan%2C%20Kec.%20Jebres%2C%20Kota%20Surakarta%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" class="w-full h-full border-0 grayscale opacity-80 contrast-125" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p class="text-center sm:text-left">© 2026 <strong>ASPAPI Jawa Tengah</strong>. Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
+            <div class="flex gap-4 text-slate-500">
+                <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                <span>·</span>
+                <a href="#" class="hover:text-white transition-colors">Syarat Ketentuan</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="login-modal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative border border-slate-100 transform scale-95 transition-all">
+            <button onclick="toggleModal('login-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-lg"></i></button>
+            <div class="text-center mb-6">
+                <h4 class="font-hero-subtitle font-bold text-xl text-royalBlue">Login Portal ASPAPI</h4>
+                <p class="text-xs text-slate-400 mt-1">Masukkan Nomor Induk Anggota (NIA) & Kata Sandi Anda</p>
+            </div>
+            <form onsubmit="handleModalSubmit(event, 'Login Berhasil! Selamat datang kembali di Portal Sinkronisasi ASPAPI.')" class="space-y-4 text-xs sm:text-sm">
+                <div class="space-y-1">
+                    <label class="block font-bold text-slate-700 text-xs">NOMOR INDUK ANGGOTA (NIA)</label>
+                    <input type="text" required placeholder="Contoh: 33741190212" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50">
+                </div>
+                <div class="space-y-1">
+                    <label class="block font-bold text-slate-700 text-xs">KATA SANDI</label>
+                    <input type="password" required placeholder="••••••••" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royalBlue bg-slate-50">
+                </div>
+                <button type="submit" class="w-full bg-royalBlue text-white py-2.5 rounded-lg font-semibold tracking-wide shadow-md hover:brightness-110 transition-all text-xs uppercase">MASUK PORTAL SINKRONISASI</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="chatbot-box" class="hidden w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200/80 overflow-hidden mb-3 transform transition-all duration-300 origin-bottom-right scale-95">
+            <div class="bg-gradient-to-r from-royalBlue to-sapphire text-white p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
+                    <div>
+                        <h5 class="font-bold text-xs tracking-wide">Asisten Virtual ASPAPI</h5>
+                        <p class="text-[9px] text-slate-300">Respons otomatis keanggotaan</p>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-white opacity-80 hover:opacity-100"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="p-4 h-48 overflow-y-auto space-y-3 bg-swanWing/30 text-xs" id="chat-content">
+                <div class="bg-slate-100 text-slate-700 p-2.5 rounded-xl rounded-tl-none max-w-[85%]">
+                    Halo! Ada yang bisa kami bantu terkait Sinkronisasi Nomor Registrasi Nasional atau Pendaftaran Anggota ASPAPI Jawa Tengah hari ini?
+                </div>
+            </div>
+            <form onsubmit="sendChatMessage(event)" class="border-t border-slate-100 p-2 bg-white flex gap-2">
+                <input type="text" id="chat-input" required placeholder="Tulis pertanyaan Anda..." class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-royalBlue bg-slate-50">
+                <button type="submit" class="bg-royalBlue text-white px-3 rounded-lg hover:bg-sapphire text-xs"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+
+        <button onclick="toggleChatbot()" class="w-14 h-14 bg-gradient-to-br from-sapphire to-royalBlue text-white rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-105 active:scale-95 transition-all relative border-2 border-quickSand/60" aria-label="Open Chat Support">
+            <i class="fas fa-comment-dots" id="chat-icon-toggle"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[9px] font-bold flex items-center justify-center text-white border border-white">1</span>
+        </button>
+    </div>
+
+    <div id="toast-container" class="fixed top-6 right-6 z-50 space-y-3 max-w-sm w-full pointer-events-none"></div>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fas fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fas fa-times text-2xl';
+            }
+        });
+
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-royalBlue', 'text-royalBlue', 'font-semibold');
+                btn.classList.add('border-transparent', 'text-slate-500', 'font-medium');
+            });
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.remove('border-transparent', 'text-slate-500', 'font-medium');
+            activeBtn.classList.add('border-royalBlue', 'text-royalBlue', 'font-semibold');
+        }
+
+        function toggleFaqNew(button) {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const icon = button.querySelector('.fa-chevron-down');
+
+            answer.classList.toggle('hidden');
+            
+            if (answer.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+                item.classList.remove('bg-white', 'shadow-md');
+                item.classList.add('bg-swanWing/40');
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+                item.classList.add('bg-white', 'shadow-md');
+                item.classList.remove('bg-swanWing/40');
+            }
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            toast.className = `p-4 rounded-2xl shadow-xl border text-xs sm:text-sm font-semibold flex items-center gap-3 transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto bg-white`;
+            
+            let iconMarkup = '';
+            if (type === 'success') {
+                toast.classList.add('border-emerald-200', 'text-emerald-900');
+                iconMarkup = `<div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0"><i class="fas fa-check-circle"></i></div>`;
+            } else {
+                toast.classList.add('border-blue-200', 'text-royalBlue');
+                iconMarkup = `<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-royalBlue shrink-0"><i class="fas fa-info-circle"></i></div>`;
+            }
+
+            toast.innerHTML = `
+                ${iconMarkup}
+                <div class="grow">${message}</div>
+                <button class="text-slate-400 hover:text-slate-600 ml-2" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-x-12', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-x-12', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            showToast('Kirim Berhasil! Pesan Anda telah diterima oleh sekretariat ASPAPI Jawa Tengah.');
+            event.target.reset();
+        }
+
+        function handleModalSubmit(event, successText) {
+            event.preventDefault();
+            showToast(successText);
+            event.target.reset();
+            event.target.closest('[id$="-modal"]').classList.add('hidden');
+        }
+
+        function toggleChatbot() {
+            const chatBox = document.getElementById('chatbot-box');
+            const chatIcon = document.getElementById('chat-icon-toggle');
+            chatBox.classList.toggle('hidden');
+            
+            if(chatBox.classList.contains('hidden')) {
+                chatIcon.className = 'fas fa-comment-dots';
+            } else {
+                chatIcon.className = 'fas fa-chevron-down';
+            }
+        }
+
+        function sendChatMessage(event) {
+            event.preventDefault();
+            const input = document.getElementById('chat-input');
+            const content = document.getElementById('chat-content');
+            
+            if(!input.value.trim()) return;
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'bg-royalBlue text-white p-2.5 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-right';
+            userMsg.textContent = input.value;
+            content.appendChild(userMsg);
+            
+            const currentQuery = input.value.toLowerCase();
+            input.value = '';
+            content.scrollTop = content.scrollHeight;
+
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'bg-slate-100 text-slate-700 p-2.5 rounded-xl rounded-tl-none max-w-[85%]';
+                
+                if(currentQuery.includes('daftar') || currentQuery.includes('registrasi') || currentQuery.includes('gabung')) {
+                    botMsg.textContent = "Silakan kunjungi bagian 'Simulasi KTA & Daftar Instan' di tengah halaman untuk melakukan simulasi pembuatan kartu anggota Anda secara live!";
+                } else if(currentQuery.includes('nia') || currentQuery.includes('nomor')) {
+                    botMsg.textContent = "Nomor Induk Anggota (NIA) Anda dapat disimulasikan langsung lewat widget Generator KTA kami di halaman ini.";
+                } else if(currentQuery.includes('faq') || currentQuery.includes('tanya')) {
+                    botMsg.textContent = "Kami memiliki daftar FAQ lengkap dengan fitur cari pintar di bagian tengah halaman. Masukkan kata kunci masalah Anda di sana.";
+                } else {
+                    botMsg.textContent = "Pesan Anda kami terima. Silakan isi form hubungi kami untuk koordinasi kemitraan strategis lebih mendalam.";
+                }
+                
+                content.appendChild(botMsg);
+                content.scrollTop = content.scrollHeight;
+            }, 800);
+        }
+
+        let currentPhotoUrl = "https://placehold.co/150x200/112250/E0C68F?text=Foto+Formal";
+
+        // Fungsi KTA logic tetap dipertahankan
+        function updateCard() {
+            const nama = document.getElementById('input-nama').value || 'NAMA LENGKAP';
+            const peran = document.getElementById('input-peran').value;
+            const instansi = document.getElementById('input-instansi').value || 'Nama Instansi';
+            const kota = document.getElementById('input-kota').value || 'Lokasi';
+
+            let baseNia = "3374"; 
+            if (peran.includes("Guru")) baseNia += "22";
+            else if (peran.includes("Dosen")) baseNia += "11";
+            else if (peran.includes("Praktisi")) baseNia += "33";
+            else baseNia += "44";
+
+            const nameCode = (nama.length * 7).toString().padStart(3, '0');
+            const finalNia = `NIA.${baseNia}26${nameCode}`;
+
+            document.getElementById('kta-preview-nama').textContent = nama.toUpperCase();
+            document.getElementById('kta-preview-peran').textContent = peran;
+            document.getElementById('kta-preview-instansi').textContent = instansi;
+            document.getElementById('kta-preview-kota').textContent = kota;
+            document.getElementById('kta-preview-nia').textContent = finalNia;
+
+            const benefitList = document.getElementById('benefit-list');
+            let benefits = "";
+            if (peran.includes("Dosen")) {
+                benefits = `
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Prioritas Jurnal Terakreditasi</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Seminar Call for Papers</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Jejaring Pakar Nasional</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> KTA VIP Premium</div>
+                `;
+            } else if (peran.includes("Guru")) {
+                benefits = `
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Pelatihan Modul Ajar Kurmer</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Pemagangan Industri (MoU)</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Akses Kumpulan Modul RPP</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> KTA Pendidik Terdaftar</div>
+                `;
+            } else if (peran.includes("Praktisi")) {
+                benefits = `
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Sertifikasi Manajemen Mutu</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Talent Pool Rekrutmen</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Sharing Session Industri</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> KTA Praktisi Rekomendasi</div>
+                `;
+            } else {
+                benefits = `
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Mentorship Career Path</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Uji Kompetensi Subsidi</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> Info Magang Prioritas</div>
+                    <div class="flex items-center gap-1.5"><i class="fas fa-check text-emerald-500"></i> KTA Anggota Muda</div>
+                `;
+            }
+            benefitList.innerHTML = benefits;
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentPhotoUrl = e.target.result;
+                    document.getElementById('temp-photo-preview').src = currentPhotoUrl;
+                    document.getElementById('kta-preview-image').src = currentPhotoUrl;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function submitFormGabung(event) {
+            event.preventDefault();
+            const nama = document.getElementById('input-nama').value;
+            const nia = document.getElementById('kta-preview-nia').textContent;
+            showToast(`Pengajuan Berhasil Disimpan! Selamat bergabung ${nama}. Berkas Anda divalidasi dengan kode draft: ${nia}.`);
+            
+            document.getElementById('kta-form').reset();
+            document.getElementById('temp-photo-preview').src = "https://placehold.co/150x150/112250/E0C68F?text=Foto";
+        }
+
+        function downloadKTA() {
+            const nama = document.getElementById('kta-preview-nama').textContent;
+            if (nama === "NAMA LENGKAP") {
+                showToast('Isi nama terlebih dahulu sebelum mengunduh KTA.', 'info');
+                return;
+            }
+            showToast(`Mengunduh simulasi file KTA untuk ${nama}. (Format: PNG)`);
+        }
+
+        function filterFAQ() {
+            const searchInput = document.getElementById('faq-search-input');
+            const clearBtn = document.getElementById('faq-search-clear');
+            const filterValue = searchInput.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            let matchesFound = 0;
+
+            if (filterValue.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('button').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+
+                if (question.includes(filterValue) || answer.includes(filterValue)) {
+                    item.style.display = "block";
+                    matchesFound++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            const noResults = document.getElementById('faq-no-results');
+            if (matchesFound === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function clearFaqSearch() {
+            document.getElementById('faq-search-input').value = "";
+            document.getElementById('faq-search-clear').classList.add('hidden');
+            filterFAQ();
+        }
+
+        function filterFaqCategory(category) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const buttons = document.querySelectorAll('.faq-cat-btn');
+            
+            buttons.forEach(btn => {
+                btn.className = "faq-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all";
+            });
+            document.getElementById(`btn-faq-${category}`).className = "faq-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-royalBlue text-white shadow-sm transition-all";
+
+            faqItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            document.getElementById('faq-search-input').value = "";
+            document.getElementById('faq-search-clear').classList.add('hidden');
+            document.getElementById('faq-no-results').classList.add('hidden');
+        }
+
+        window.onload = function() {
+            updateCard();
+        }
+    </script>
+</body>
+</html>
